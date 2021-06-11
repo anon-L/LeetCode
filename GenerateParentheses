@@ -1,0 +1,30 @@
+https://leetcode.com/problems/generate-parentheses/
+  
+  class Solution(object):
+    def generateParenthesis(self, n):
+        """
+        :type n: int
+        :rtype: List[str]
+        """
+
+        
+        def genPar(ans,n,arr):
+            if len(ans) == n*2:
+                #print ans
+                if ans.count("(") == ans.count(")"):
+                    arr.append(ans)
+                return None
+            if len(ans)< n*2 and ans.count("(") > ans.count(")") :
+                genPar(ans+"(",n,arr)
+                genPar(ans+")",n,arr)
+                
+            else:
+                genPar(ans+"(",n,arr)
+                                
+        answer = []
+        genPar("(",n,answer)       
+        return answer
+        
+        
+        
+        
