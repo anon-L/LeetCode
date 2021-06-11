@@ -1,0 +1,57 @@
+https://leetcode.com/problems/longest-substring-of-all-vowels-in-order/
+
+class Solution(object):
+    def longestBeautifulSubstring(self, word):
+        """
+        :type word: str
+        :rtype: int
+        """
+        aeiou =[]
+        a=0
+        e=0
+        i=0
+        o=0
+        u=0
+        for x in range(len(word)):
+                                        
+            if(word[x:x+1] == "a"):
+                a+=1
+                if(word[x+1:x+2] !="a" and word[x+1:x+2] !="e" ):
+                    a=0
+                    
+        
+            elif(word[x:x+1] == "e" and a>0):
+                e+=1
+                if(word[x+1:x+2] !="e" and word[x+1:x+2] !="i" ):
+                    a=0
+                    e=0
+                   
+            elif(word[x:x+1] == "i" and e>0 ):
+                i+=1
+                if(word[x+1:x+2] !="i" and word[x+1:x+2] !="o" ):
+                    a=0
+                    e=0
+                    i=0
+                    
+            elif(word[x:x+1] == "o" and i>0 ):
+                o+=1
+                if(word[x+1:x+2] !="o" and word[x+1:x+2] !="u" ):
+                    a=0
+                    e=0
+                    i=0
+                    o=0
+                    
+            elif(word[x:x+1] == "u" and o>0 ):
+                u+=1
+                if(word[x+1:x+2] !="u"):
+                    aeiou.append(a+e+i+o+u)
+                    a=0
+                    e=0
+                    i=0
+                    o=0
+                    u=0
+        
+        if(aeiou):
+            return max(aeiou)
+        else:
+            return 0
