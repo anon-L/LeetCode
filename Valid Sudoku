@@ -1,0 +1,172 @@
+https://leetcode.com/problems/valid-sudoku/
+
+class Solution(object):
+    def isValidSudoku(self, board):
+        """
+        :type board: List[List[str]]
+        :rtype: bool
+        """
+        one = 0
+        two = 0
+        three = 0
+        four = 0
+        five = 0
+        six = 0
+        seven = 0
+        eight = 0
+        nine = 0
+        outter =-1
+        inner =0
+        counter = 0
+        iCounter = 0
+        oCounter = 0
+        #H loop              
+        for i in range(9):
+            for j in range(9):
+                if board[i][j] == "1":
+                    one += 1
+                    #print "one"
+                elif board[i][j] == "2":
+                    two +=1
+                    #print "two"   
+                elif board[i][j] == "3":
+                    three +=1
+                    #print "three"
+                elif board[i][j] == "4":
+                    four +=1
+                    #print "four"
+                elif board[i][j] == "5":
+                    five +=1
+                    #print "five"
+                elif board[i][j] == "6":
+                    six +=1
+                    #print "six"  
+                elif board[i][j] == "7":
+                    seven +=1
+                    #print "seven"  
+                elif board[i][j] == "8":
+                    eight +=1
+                   # print "eight"
+                elif board[i][j] == "9":
+                    nine +=1
+                    #print "nine"    
+            if one >1 or two >1 or three >1 or four >1 or five >1 or six >1 or seven >1 or eight >1 or nine >1:
+                print "horizantal"
+                return False
+            one = 0
+            two = 0
+            three = 0
+            four = 0
+            five = 0
+            six = 0
+            seven = 0
+            eight = 0
+            nine = 0
+        #V loop
+        for j in range(9):
+            for i in range(9):
+                if board[i][j] == "1":
+                    one += 1
+                    #print "one"
+                elif board[i][j] == "2":
+                    two +=1
+                    #print "two"   
+                elif board[i][j] == "3":
+                    three +=1
+                    #print "three"
+                elif board[i][j] == "4":
+                    four +=1
+                    #print "four"
+                elif board[i][j] == "5":
+                    five +=1
+                    #print "five"
+                elif board[i][j] == "6":
+                    six +=1
+                    #print "six"  
+                elif board[i][j] == "7":
+                    seven +=1
+                    #print "seven"  
+                elif board[i][j] == "8":
+                    eight +=1
+                   # print "eight"
+                elif board[i][j] == "9":
+                    nine +=1
+                    #print "nine"    
+            if one >1 or two >1 or three >1 or four >1 or five >1 or six >1 or seven >1 or eight >1 or nine >1:
+                print "verticle"
+                return False
+            one = 0
+            two = 0
+            three = 0
+            four = 0
+            five = 0
+            six = 0
+            seven = 0
+            eight = 0
+            nine = 0
+        #box loop
+        for i in range(0,27):
+            outter+=1
+            for j in range(inner,inner+3):
+                if board[outter][j] == "1":
+                    #print "one"
+                    one +=1
+                elif board[outter][j] == "2":
+                    #print "two"
+                    two +=1
+                elif board[outter][j] == "3":
+                    #print "three"
+                    three +=1
+                elif board[outter][j] == "4":
+                    #print "four"
+                    four +=1
+                elif board[outter][j] == "5":
+                    #print "five"
+                    five +=1
+                elif board[outter][j] == "6":
+                    #print "six"
+                    six +=1
+                elif board[outter][j] == "7":
+                    #print "seven"
+                    seven +=1
+                elif board[outter][j] == "8":
+                    #print "eight"
+                    eight +=1
+                elif board[outter][j] == "9":
+                    #print "nine"
+                    nine +=1
+                #print "["+str(outter)+","+str(j)+"]",
+                iCounter += 1
+            #print ""
+            #print oCounter
+            counter +=1
+            oCounter +=1
+            if counter == 3:
+                if one >1 or two >1 or three >1 or four >1 or five >1 or six >1 or seven >1 or eight >1 or nine >1:
+                    print "box"
+                    return False
+                one = 0
+                two = 0
+                three = 0
+                four = 0
+                five = 0
+                six = 0
+                seven = 0
+                eight = 0
+                nine = 0
+                #print "bcxzczxcob"
+                outter -=3
+                counter = 0
+            if oCounter == 9:
+                outter +=3
+                oCounter -=9                
+            if (oCounter == 0 or oCounter ==1) and iCounter == 9:
+                #print "something"
+                inner  -=9
+            if iCounter == 9 :
+                iCounter = 0
+                inner +=3
+        return True
+        #box loop
+        
+        
