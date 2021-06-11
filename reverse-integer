@@ -1,0 +1,24 @@
+class Solution(object):
+    def reverse(self, x):
+        """
+        :type x: int
+        :rtype: int
+        """
+        y = str(x)
+        answer = ""
+        if (x >-2147483648 and  x< 2147483647):
+            for z in reversed(range(len(y))) :
+                answer += y[z:z+1]
+
+                if (y[z:z+1] == "-"):
+                    print"-"
+                    answer = "-" + answer[0:len(answer)-1]
+                    
+        print(answer)
+        if  answer:
+            if (int(answer) > -2147483648 and  int(answer)< 2147483647):       
+                return int(answer)
+            else:
+                return 0
+        else :
+            return 0
