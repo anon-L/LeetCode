@@ -1,0 +1,27 @@
+https://leetcode.com/problems/maximum-number-of-balloons/
+
+class Solution(object):
+    def maxNumberOfBalloons(self, text):
+        """
+        :type text: str
+        :rtype: int 
+        """
+        b = text.count("b");
+        a = text.count("a");
+        l = math.floor(text.count("l")/2);
+        o = math.floor(text.count("o")/2);
+        n = text.count("n");
+        ocArr = [];
+        
+                           
+
+        ocArr.append(b)
+        ocArr.append(a)
+        ocArr.append(l)
+        ocArr.append(o)
+        ocArr.append(n)
+        
+        if int(min(ocArr)) >=1 :       
+            return int(min(ocArr))
+        else:
+            return 0
